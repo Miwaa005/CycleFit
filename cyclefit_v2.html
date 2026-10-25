@@ -1,0 +1,174 @@
+<!doctype html>
+<html lang="no">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>CycleFit — Train with your cycle</title>
+<style>
+:root{--bg:#fbf7f5;--card:#fff;--ink:#332b35;--muted:#827784;--pink:#e8a9bd;--pink2:#f8e6ed;--lav:#e9e3f6;--purple:#8c79b7;--green:#dcebe1;--line:#f0e7eb;--shadow:0 8px 28px #5b34420d}
+*{box-sizing:border-box}body{margin:0;background:var(--bg);color:var(--ink);font-family:Inter,ui-sans-serif,system-ui,-apple-system,BlinkMacSystemFont,"Segoe UI",sans-serif}button,input,select{font:inherit}button{cursor:pointer;border:0}.app{max-width:1180px;margin:auto;padding:24px}.top{display:flex;align-items:center;justify-content:space-between;margin-bottom:26px}.brand{display:flex;align-items:center;gap:12px}.logo{width:46px;height:46px;border-radius:16px;background:linear-gradient(135deg,#f4d2df,#d9ccef);display:grid;place-items:center;font-size:24px}.brand h1{font-size:22px;margin:0;letter-spacing:-.6px}.brand p{margin:3px 0 0;color:var(--muted);font-size:12px}.pill{background:#fff;border:1px solid var(--line);padding:9px 13px;border-radius:999px;color:var(--muted);font-size:12px}.layout{display:grid;grid-template-columns:220px minmax(0,1fr);gap:24px}.nav{background:var(--card);padding:12px;border-radius:22px;height:max-content;box-shadow:var(--shadow);position:sticky;top:18px}.nav button{display:flex;align-items:center;gap:11px;width:100%;text-align:left;background:transparent;color:var(--muted);padding:13px;border-radius:14px;margin:3px 0}.nav button.active{background:var(--pink2);color:#81475e;font-weight:650}.nav .navicon{font-size:18px;width:24px;text-align:center}.navnote{font-size:12px;color:var(--muted);line-height:1.55;padding:16px 12px 7px}.main{min-width:0}.welcome{margin-bottom:20px}.eyebrow{text-transform:uppercase;letter-spacing:1.7px;color:#a17d91;font-size:11px;font-weight:700}.welcome h2{font-size:29px;letter-spacing:-1px;margin:6px 0}.welcome p{color:var(--muted);margin:0;line-height:1.5}.grid{display:grid;grid-template-columns:1.2fr .8fr;gap:18px}.card{background:var(--card);border:1px solid #f3eaee;border-radius:22px;padding:22px;box-shadow:var(--shadow);min-width:0}.card h3{margin:0 0 7px;font-size:16px}.sub{color:var(--muted);font-size:13px;line-height:1.5}.phasecard{background:linear-gradient(135deg,#f9e7ed,#eee8fa);border:0;position:relative;overflow:hidden}.phasecard:after{content:"";position:absolute;width:170px;height:170px;border-radius:50%;background:#ffffff48;right:-55px;top:-58px}.phasehead{display:flex;justify-content:space-between;align-items:flex-start;gap:12px}.phasehead h3{font-size:21px;margin:7px 0}.phase-num{font-size:12px;color:#76566a;background:#ffffff9c;padding:8px 10px;border-radius:99px;white-space:nowrap}.phase-desc{max-width:400px;font-size:13px;color:#6e5968;line-height:1.6}.cyclebar{height:8px;background:#ffffffa3;border-radius:99px;margin:22px 0 8px;overflow:hidden}.cyclebar span{display:block;height:100%;background:#ba86a0;border-radius:99px;transition:width .2s}.cyclelabels{display:flex;justify-content:space-between;color:#806c7b;font-size:10px}.statrow{display:grid;grid-template-columns:repeat(3,1fr);gap:10px;margin-top:16px}.stat{background:#ffffffad;border-radius:14px;padding:12px}.stat strong{display:block;font-size:18px}.stat span{font-size:11px;color:#806c7b}.sectiontitle{display:flex;align-items:center;justify-content:space-between;margin:23px 0 12px}.sectiontitle h3{margin:0;font-size:17px}.textlink{background:none;color:#96657d;font-size:12px;font-weight:700}.workout{display:flex;gap:13px;align-items:center;padding:13px 0;border-bottom:1px solid var(--line)}.workout:last-child{border-bottom:0;padding-bottom:0}.workicon{width:48px;height:48px;border-radius:15px;background:var(--lav);display:grid;place-items:center;font-size:23px;flex-shrink:0}.workinfo{flex:1;min-width:0}.workinfo strong{display:block;font-size:13px}.workinfo span{display:block;color:var(--muted);font-size:11px;margin-top:4px}.smallbtn{background:#f8e8ee;color:#8d5069;padding:9px 12px;border-radius:11px;font-size:12px;font-weight:650}.primary{background:#946a9f;color:white;border-radius:13px;padding:12px 16px;font-weight:650;font-size:13px}.secondary{background:#f5eff7;color:#725c83;border-radius:12px;padding:11px 14px;font-weight:600;font-size:13px}.buttons{display:flex;gap:9px;flex-wrap:wrap;margin-top:16px}.checkgrid{display:grid;grid-template-columns:1fr 1fr;gap:14px;margin-top:17px}.field label{display:block;font-size:12px;font-weight:650;margin-bottom:8px}.field select,.field input{width:100%;border:1px solid var(--line);background:#fffafc;padding:11px;border-radius:12px;color:var(--ink);outline-color:#c69db4}.moods{display:flex;gap:8px;flex-wrap:wrap}.mood{background:#faf5f8;border:1px solid var(--line);padding:9px 11px;border-radius:12px;font-size:12px;color:var(--muted)}.mood.selected{background:var(--pink2);border-color:#e2b5c7;color:#844e66}.recommend{background:#f8f4fc;border-radius:17px;padding:16px;margin-top:15px}.recommend strong{display:block;margin-bottom:5px}.recommend p{margin:0;color:var(--muted);font-size:13px;line-height:1.55}.page{display:none}.page.active{display:block}.calendar-head{display:flex;align-items:center;justify-content:space-between;margin-bottom:14px}.calendar-head h3{margin:0}.calendar{display:grid;grid-template-columns:repeat(7,1fr);gap:6px}.dayname{text-align:center;font-size:10px;color:var(--muted);padding:8px 0}.day{aspect-ratio:1;border-radius:12px;background:#fcf8fa;display:grid;place-items:center;font-size:12px;position:relative;border:1px solid transparent}.day.empty{background:transparent}.day.period{background:#f4dce6;color:#81485e}.day.follicular{background:#f0eafa}.day.ovulation{background:#dfeee4}.day.luteal{background:#f8eedc}.day.today{border:2px solid #9a729f;font-weight:800}.legend{display:flex;gap:12px;flex-wrap:wrap;margin-top:14px}.legend span{font-size:11px;color:var(--muted);display:flex;align-items:center;gap:5px}.dot{width:9px;height:9px;border-radius:50%;display:inline-block}.settings{display:grid;grid-template-columns:1fr 1fr;gap:16px}.exercise{display:flex;align-items:center;justify-content:space-between;gap:12px;padding:14px 0;border-bottom:1px solid var(--line)}.exercise:last-child{border:0}.exercise small{display:block;color:var(--muted);margin-top:4px}.tag{background:#f3edf7;color:#80658f;border-radius:99px;padding:6px 9px;font-size:10px;white-space:nowrap}.historyitem{padding:12px 0;border-bottom:1px solid var(--line);font-size:13px}.historyitem:last-child{border:0}.empty{color:var(--muted);font-size:13px;padding:16px 0}.footer{font-size:11px;color:#9b909a;line-height:1.6;margin:22px 2px}.toast{position:fixed;bottom:20px;left:50%;transform:translateX(-50%);background:#382d3b;color:white;padding:12px 18px;border-radius:12px;font-size:13px;box-shadow:var(--shadow);display:none;z-index:5}.toast.show{display:block}@media(max-width:780px){.app{padding:15px}.layout{grid-template-columns:1fr;gap:14px}.nav{position:static;display:flex;overflow-x:auto;padding:7px;gap:4px}.nav button{width:auto;white-space:nowrap;padding:10px 12px}.navnote{display:none}.nav .navicon{width:auto}.grid{grid-template-columns:1fr}.welcome h2{font-size:25px}.card{padding:18px}.settings{grid-template-columns:1fr}.top{margin-bottom:17px}.pill{font-size:10px}}@media(min-width:781px){.nav button span:last-child{font-size:13px}}
+</style>
+</head>
+<body>
+<div class="app">
+<header class="top">
+ <div class="brand"><div class="logo">🌷</div><div><h1>CycleFit</h1><p>TRAIN WITH YOUR CYCLE</p></div></div>
+ <div class="pill">✦ Your cycle, your pace</div>
+</header>
+<div class="layout">
+ <nav class="nav" aria-label="Hovedmeny">
+  <button class="active" data-page="today"><span class="navicon">☀️</span><span>Today</span></button>
+  <button data-page="cycle"><span class="navicon">🌙</span><span>My cycle</span></button>
+  <button data-page="training"><span class="navicon">♡</span><span>Training</span></button>
+  <button data-page="mindfulness"><span class="navicon">☁️</span><span>Mindfulness</span></button>
+  <button data-page="settings"><span class="navicon">⚙️</span><span>Settings</span></button>
+  <div class="navnote">Små steg teller. Lytt til kroppen din, og tilpass treningen til hvordan du faktisk føler deg.</div>
+ </nav>
+ <main class="main">
+  <section class="page active" id="page-today">
+   <div class="welcome"><div class="eyebrow" id="todayDate"></div><h2>Hei, fine du <span>✿</span></h2><p>La oss finne en god balanse for kroppen din i dag.</p></div>
+   <div class="grid">
+    <div class="card phasecard">
+     <div class="phasehead"><div><div class="eyebrow">YOUR CYCLE PHASE</div><h3 id="phaseTitle">Follikkelfasen</h3></div><div class="phase-num" id="cycleDay">Dag 8</div></div>
+     <div class="phase-desc" id="phaseDescription">En ny fase i syklusen din. Velg treningen som føles riktig for deg.</div>
+     <div class="cyclebar"><span id="cycleProgress" style="width:28%"></span></div>
+     <div class="cyclelabels"><span>Menstruasjon</span><span>Eggløsning</span><span>Lutealfase</span></div>
+     <div class="statrow"><div class="stat"><strong id="nextPeriod">—</strong><span>Neste mens (est.)</span></div><div class="stat"><strong id="cycleLengthStat">28 dager</strong><span>Sykluslengde</span></div><div class="stat"><strong id="energyStat">Middels</strong><span>Dagsform</span></div></div>
+    </div>
+    <div class="card">
+     <h3>✧ Dagens innsjekk</h3><div class="sub">Hvordan kjennes kroppen din i dag?</div>
+     <div class="checkgrid">
+      <div class="field"><label for="energy">Energinivå</label><select id="energy"><option value="low">Lavt</option><option value="medium" selected>Middels</option><option value="high">Høyt</option></select></div>
+      <div class="field"><label for="symptom">Symptomer</label><select id="symptom"><option value="none">Ingen spesielle</option><option value="cramps">Menssmerter</option><option value="tired">Trøtthet</option><option value="sore">Ømhet / oppblåsthet</option></select></div>
+     </div>
+     <div class="field" style="margin-top:16px"><label>Humør</label><div class="moods" id="moods"><button class="mood selected" data-mood="good">😊 Bra</button><button class="mood" data-mood="okay">😌 Helt ok</button><button class="mood" data-mood="low">🌧️ Litt nede</button></div></div>
+     <button class="primary" style="margin-top:16px;width:100%" id="saveCheckin">Lagre innsjekk</button>
+    </div>
+   </div>
+   <div class="sectiontitle"><h3>Ditt forslag for i dag</h3><button class="textlink" data-goto="training">Se alle økter →</button></div>
+   <div class="card"><div class="workout"><div class="workicon" id="recommendIcon">🏋️‍♀️</div><div class="workinfo"><strong id="recommendTitle">Fullkropp styrke</strong><span id="recommendMeta">30–40 min · Moderat intensitet</span></div><span class="tag" id="recommendTag">Styrke</span></div><div class="recommend"><strong id="recommendWhy">Bygg styrke i ditt eget tempo</strong><p id="recommendText">Velg en belastning som føles passe i dag. Du kan alltid justere underveis.</p></div><div class="buttons"><button class="primary" id="startRecommended">Start økt</button><button class="secondary" id="lighter">Velg lettere økt</button><button class="secondary" id="rest">Jeg trenger hvile</button></div></div>
+   <div class="footer">CycleFit gir generelle velvære- og treningstips, ikke medisinske råd. Syklusfaser og datoer er estimater, og treningsprestasjon varierer fra person til person. Du trenger ikke endre treningen din på grunn av syklusfasen hvis du føler deg bra.</div>
+  </section>
+  <section class="page" id="page-cycle">
+   <div class="welcome"><div class="eyebrow">KNOW YOUR RHYTHM</div><h2>My cycle 🌙</h2><p>Følg syklusen din med en enkel kalender. Prognosene er omtrentlige.</p></div>
+   <div class="grid">
+    <div class="card"><div class="calendar-head"><button class="secondary" id="prevMonth">←</button><h3 id="monthTitle">Måned</h3><button class="secondary" id="nextMonth">→</button></div><div class="calendar" id="calendar"></div><div class="legend"><span><i class="dot" style="background:#f4dce6"></i>Menstruasjon</span><span><i class="dot" style="background:#f0eafa"></i>Follikkelfase</span><span><i class="dot" style="background:#dfeee4"></i>Eggløsning (est.)</span><span><i class="dot" style="background:#f8eedc"></i>Lutealfase</span></div></div>
+    <div class="card"><h3>Syklusinnstillinger</h3><p class="sub">Bruk estimater som utgangspunkt, og oppdater dem når du trenger det.</p>
+     <div class="field" style="margin-top:18px"><label for="periodStart">Første dag i siste menstruasjon</label><input type="date" id="periodStart"></div>
+     <div class="field" style="margin-top:15px"><label for="cycleLength">Gjennomsnittlig sykluslengde</label><select id="cycleLength"><option>21</option><option>22</option><option>23</option><option>24</option><option>25</option><option>26</option><option>27</option><option selected>28</option><option>29</option><option>30</option><option>31</option><option>32</option><option>33</option><option>34</option><option>35</option></select><div class="sub" style="margin-top:5px">Antall dager fra første mensdag til neste mensdag.</div></div>
+     <div class="field" style="margin-top:15px"><label for="periodLength">Vanlig blødningslengde</label><select id="periodLength"><option>3</option><option>4</option><option selected>5</option><option>6</option><option>7</option><option>8</option></select></div>
+     <button class="primary" id="saveCycle" style="margin-top:18px;width:100%">Lagre syklus</button>
+     <div class="recommend"><strong>Husk</strong><p>Eggløsning kan ikke fastslås sikkert ut fra kalenderen alene. Syklusberegninger bør ikke brukes som prevensjon.</p></div>
+    </div>
+   </div>
+  </section>
+  <section class="page" id="page-training">
+   <div class="welcome"><div class="eyebrow">MOVE IN YOUR OWN WAY</div><h2>Training studio ♡</h2><p>Velg økten som passer deg i dag — alle alternativene er like gyldige.</p></div>
+   <div class="grid">
+    <div class="card"><h3>Økter for deg</h3><p class="sub">Velg en økt for å se øvelser og starte.</p><div id="workoutList"></div></div>
+    <div class="card"><h3 id="detailTitle">Fullkropp styrke</h3><p class="sub" id="detailDescription">En balansert økt du kan tilpasse.</p><div id="exerciseList"></div><div class="buttons"><button class="primary" id="completeWorkout">✓ Fullfør økt</button><button class="secondary" id="backToToday">Til Today</button></div></div>
+   </div>
+   <div class="sectiontitle"><h3>Din treningshistorikk</h3></div><div class="card" id="history"><div class="empty">Ingen fullførte økter ennå. Når du fullfører en økt, vises den her.</div></div>
+  </section>
+
+  <section class="page" id="page-mindfulness">
+   <div class="welcome"><div class="eyebrow">PAUSE & RESET</div><h2>Mindfulness ☁️</h2><p>Et lite pusterom i dagen din. Finn en rytme som kjennes behagelig.</p></div>
+   <div class="grid">
+    <div class="card" style="text-align:center">
+     <div class="eyebrow">GUIDED BREATHING</div><h3 style="margin-top:8px">Pust med meg</h3>
+     <p class="sub">Pust rolig inn i 4 sekunder og ut i 6. Ikke press pusten — gå tilbake til vanlig pust hvis dette ikke føles godt.</p>
+     <div style="min-height:230px;display:grid;place-items:center;position:relative">
+      <div id="breathOrb" style="width:150px;height:150px;border-radius:50%;background:radial-gradient(circle at 35% 30%,#f7e4ed,#dcd1f1);box-shadow:0 0 0 16px #f8eff7,0 0 0 32px #fbf6fa;display:grid;place-items:center;transition:transform 4s ease-in-out">
+       <div><div id="breathWord" style="font-size:19px;font-weight:700;color:#765c85">Klar?</div><div id="breathCount" style="font-size:12px;color:#8e7c99;margin-top:5px">Følg sirkelen</div></div>
+      </div>
+     </div>
+     <div class="buttons" style="justify-content:center"><button class="primary" id="breathStart">Start pusteøvelse</button><button class="secondary" id="breathStop">Stopp</button></div>
+     <div class="sub" style="margin-top:13px">Du kan stoppe når som helst og puste helt naturlig.</div>
+    </div>
+    <div class="card">
+     <div class="eyebrow">MINDFULNESS TIMER</div><h3 style="margin-top:8px">Ta noen minutter for deg selv</h3><p class="sub">Velg varighet. Bruk tiden til stille meditasjon, kroppsskanning eller bare en rolig pause.</p>
+     <div class="moods" style="margin:18px 0"><button class="mood duration selected" data-min="2">2 min</button><button class="mood duration" data-min="5">5 min</button><button class="mood duration" data-min="10">10 min</button></div>
+     <div style="background:#f8f3fa;border-radius:20px;padding:25px 12px;text-align:center;margin:12px 0"><div id="timerDisplay" style="font-size:48px;font-weight:650;letter-spacing:-2px;font-variant-numeric:tabular-nums">02:00</div><div id="timerStatus" class="sub">Klar når du er</div></div>
+     <div class="buttons"><button class="primary" id="timerStart">Start</button><button class="secondary" id="timerReset">Nullstill</button></div>
+     <div class="recommend" style="margin-top:20px"><strong>Et lite tips</strong><p>Finn en behagelig sittestilling. Du trenger ikke tømme hodet for tanker — legg bare merke til dem, og vend rolig oppmerksomheten tilbake.</p></div>
+    </div>
+   </div>
+   <div class="footer">Mindfulness-funksjonen er ment som et enkelt velværeverktøy, ikke som behandling for stress eller helseplager. Stopp øvelsen hvis du blir svimmel eller uvel.</div>
+  </section>
+
+  <section class="page" id="page-settings">
+   <div class="welcome"><div class="eyebrow">YOUR SPACE</div><h2>Settings ⚙️</h2><p>Tilpass opplevelsen din og se hvordan dataene lagres.</p></div>
+   <div class="card"><h3>Syklus og personvern</h3><p class="sub">Syklusdata, innsjekker og treningshistorikk lagres lokalt i denne nettleseren på denne enheten. De sendes ikke til en server av denne prototypen.</p><div class="buttons"><button class="secondary" id="exportData">Eksporter mine data</button><button class="secondary" id="resetData">Tilbakestill appdata</button></div><p class="sub" style="margin-top:18px">Hvis du bruker hormonell prevensjon, har uregelmessig syklus eller ikke ønsker syklusbaserte forslag, kan du fortsatt bruke treningsdelen og velge økter selv.</p></div>
+  </section>
+ </main>
+</div>
+</div>
+<div class="toast" id="toast" role="status"></div>
+<script>
+const $=id=>document.getElementById(id);
+const today=new Date(); today.setHours(0,0,0,0);
+const iso=d=>{const x=new Date(d);x.setMinutes(x.getMinutes()-x.getTimezoneOffset());return x.toISOString().slice(0,10)};
+const addDays=(d,n)=>{let x=new Date(d);x.setDate(x.getDate()+n);return x};
+const daysBetween=(a,b)=>Math.floor((b-a)/86400000);
+const fmt=(d,opts={day:'numeric',month:'short'})=>new Intl.DateTimeFormat('nb-NO',opts).format(d);
+const defaultStart=addDays(today,-7);
+let data={start:iso(defaultStart),length:28,bleed:5,energy:'medium',symptom:'none',mood:'good',history:[],checkins:[]};
+try{const saved=JSON.parse(localStorage.getItem('cyclefit-data'));if(saved)data={...data,...saved}}catch(e){}
+let viewMonth=new Date(today.getFullYear(),today.getMonth(),1);
+let selectedWorkout='strength';
+const workouts={
+ strength:{title:'Fullkropp styrke',icon:'🏋️‍♀️',tag:'Styrke',meta:'35 min · Moderat',description:'En balansert styrkeøkt. Velg vekter som passer dagsformen din.',exercises:[['Knebøy eller goblet squat','3 sett × 8–10 reps'],['Rumensk markløft','3 sett × 8–10 reps'],['Sittende roing','3 sett × 10–12 reps'],['Glute bridge','3 sett × 12 reps'],['Dead bug','2 sett × 10 per side']]},
+ light:{title:'Rolig bevegelse',icon:'🧘‍♀️',tag:'Lett',meta:'15–25 min · Lett',description:'En myk økt med bevegelighet og rolig aktivitet. Stopp eller tilpass ved ubehag.',exercises:[['Rolig gåtur','10–20 min'],['Cat-cow','2 × 8 reps'],['Hofteåpner','2 × 30 sek per side'],['Rolig pust','2 min']]},
+ cardio:{title:'Kondisjon etter dagsform',icon:'🏃‍♀️',tag:'Kondisjon',meta:'20–30 min · Valgfri intensitet',description:'Velg et tempo der du fortsatt føler at du har kontroll. Du kan holde intensiteten lav.',exercises:[['Oppvarming','5 min rolig'],['Gåtur, sykkel eller jogg','10–20 min'],['Nedtrapping','5 min rolig']]},
+ mobility:{title:'Mobilitet & restitusjon',icon:'🌿',tag:'Mobilitet',meta:'15 min · Lett',description:'Lett bevegelighet kan være fint når du ønsker å bevege deg uten en hard økt.',exercises:[['Skuldersirkler','1 min'],['Cat-cow','2 × 8 reps'],['Barnets posisjon','30 sek × 2'],['Lett hofte- og ankelmobilitet','4 min']]},
+ rest:{title:'Hvile uten dårlig samvittighet',icon:'☁️',tag:'Hvile',meta:'Restitusjon · 0 min',description:'Hvile er også en del av trening. Du trenger ikke gjøre en økt for å ha gjort nok i dag.',exercises:[['Ta en pause','Du trenger ikke prestere i dag'],['Hvis du vil','Prøv litt frisk luft eller rolig tøying']]}
+};
+function phaseInfo(){const start=new Date(data.start+'T00:00:00');let day=daysBetween(start,today)+1;if(day<1)day=1;const len=Number(data.length)||28;const cyc=((day-1)%len)+1;let phase,key,desc;if(cyc<=Number(data.bleed)){phase='Menstruasjonsfasen';key='period';desc='Ta hensyn til hvordan du føler deg. Rolig bevegelse, vanlig trening eller hvile kan alle være gode valg.'}else if(cyc<Math.max(3,Math.round(len*.43))){phase='Follikkelfasen';key='follicular';desc='Hvis energien kjennes god, kan du prøve styrke eller en økt med litt progresjon. Tilpass etter dagsformen.'}else if(cyc<=Math.round(len*.57)){phase='Eggløsningsperioden (est.)';key='ovulation';desc='Du kan velge styrke, kondisjon eller det du liker best. Kalenderen kan ikke bekrefte eggløsning.'}else{phase='Lutealfasen';key='luteal';desc='Velg det som føles bærekraftig. En vanlig økt, moderat trening eller lettere bevegelse er alle alternativer.'}return{day:cyc,len,phase,key,desc,next:addDays(start,Math.ceil((day-1)/len)*len+len-(day-1)%len-1)}}
+function recommendation(){if(data.energy==='low'||data.symptom==='cramps'||data.symptom==='tired')return 'light';if(data.energy==='high')return 'strength';if(data.symptom==='sore')return 'mobility';const p=phaseInfo();return p.key==='period'?'light':p.key==='luteal'?'mobility':'strength'}
+function showToast(t){$('toast').textContent=t;$('toast').classList.add('show');setTimeout(()=>$('toast').classList.remove('show'),2300)}
+function save(){localStorage.setItem('cyclefit-data',JSON.stringify(data))}
+function updateHome(){const p=phaseInfo();$('todayDate').textContent=fmt(today,{weekday:'long',day:'numeric',month:'long'}).toUpperCase();$('phaseTitle').textContent=p.phase;$('cycleDay').textContent='Dag '+p.day;$('phaseDescription').textContent=p.desc;$('cycleProgress').style.width=(p.day/p.len*100)+'%';$('nextPeriod').textContent=fmt(addDays(new Date(data.start+'T00:00:00'),Math.ceil((daysBetween(new Date(data.start+'T00:00:00'),today)+1)/p.len)*p.len));$('cycleLengthStat').textContent=p.len+' dager';$('energyStat').textContent={low:'Lav',medium:'Middels',high:'Høy'}[data.energy];const key=recommendation(),w=workouts[key];$('recommendIcon').textContent=w.icon;$('recommendTitle').textContent=w.title;$('recommendMeta').textContent=w.meta;$('recommendTag').textContent=w.tag;$('recommendWhy').textContent=data.energy==='low'?'Dagsformen din først':data.energy==='high'?'Bruk energien på din måte':'En økt som kan passe i dag';$('recommendText').textContent=data.symptom==='cramps'?'Du har valgt menssmerter. Vurder rolig bevegelse eller hvile hvis det kjennes best.':data.energy==='low'?'Du har registrert lav energi. En kortere og roligere økt kan være et alternativ — eller du kan hvile.':w.description}
+function renderCalendar(){const cal=$('calendar');cal.innerHTML='';const y=viewMonth.getFullYear(),m=viewMonth.getMonth(),first=new Date(y,m,1),last=new Date(y,m+1,0);$('monthTitle').textContent=new Intl.DateTimeFormat('nb-NO',{month:'long',year:'numeric'}).format(viewMonth);['Ma','Ti','On','To','Fr','Lø','Sø'].forEach(x=>{const e=document.createElement('div');e.className='dayname';e.textContent=x;cal.append(e)});let offset=(first.getDay()+6)%7;for(let i=0;i<offset;i++){const e=document.createElement('div');e.className='day empty';cal.append(e)}const start=new Date(data.start+'T00:00:00');for(let n=1;n<=last.getDate();n++){const d=new Date(y,m,n),diff=daysBetween(start,d),cyc=((diff%Number(data.length))+Number(data.length))%Number(data.length)+1;let cls='day';if(diff>=0){if(cyc<=Number(data.bleed))cls+=' period';else if(cyc<=Math.round(Number(data.length)*.43))cls+=' follicular';else if(cyc<=Math.round(Number(data.length)*.57))cls+=' ovulation';else cls+=' luteal'}if(iso(d)===iso(today))cls+=' today';const e=document.createElement('div');e.className=cls;e.textContent=n;e.title=diff<0?'Ingen beregning før registrert menstruasjonsstart':'Estimert syklusdag '+cyc;cal.append(e)}}
+function renderWorkouts(){const list=$('workoutList');list.innerHTML='';Object.entries(workouts).forEach(([key,w])=>{const row=document.createElement('div');row.className='workout';row.innerHTML=`<div class="workicon">${w.icon}</div><div class="workinfo"><strong>${w.title}</strong><span>${w.meta}</span></div><button class="smallbtn">Velg</button>`;row.querySelector('button').onclick=()=>selectWorkout(key);list.append(row)})}
+function selectWorkout(key){selectedWorkout=key;const w=workouts[key];$('detailTitle').textContent=w.title;$('detailDescription').textContent=w.description;const list=$('exerciseList');list.innerHTML='';w.exercises.forEach(([name,meta])=>{const el=document.createElement('div');el.className='exercise';el.innerHTML=`<div><strong>${name}</strong><small>${meta}</small></div><span class="tag">Øvelse</span>`;list.append(el)})}
+function renderHistory(){const h=$('history');if(!data.history.length){h.innerHTML='<div class="empty">Ingen fullførte økter ennå. Når du fullfører en økt, vises den her.</div>';return}h.innerHTML=data.history.slice().reverse().map(x=>`<div class="historyitem">✓ <strong>${x.title}</strong><span style="color:var(--muted)"> — ${x.date}</span></div>`).join('')}
+function saveCycle(){data.start=$('periodStart').value||data.start;data.length=Number($('cycleLength').value);data.bleed=Number($('periodLength').value);save();updateHome();renderCalendar();showToast('Syklusinnstillingene er lagret')}
+document.querySelectorAll('[data-page]').forEach(b=>b.addEventListener('click',()=>goPage(b.dataset.page)));
+document.querySelectorAll('[data-goto]').forEach(b=>b.addEventListener('click',()=>goPage(b.dataset.goto)));
+function goPage(page){document.querySelectorAll('.page').forEach(x=>x.classList.remove('active'));$('page-'+page).classList.add('active');document.querySelectorAll('[data-page]').forEach(x=>x.classList.toggle('active',x.dataset.page===page));if(page==='cycle')renderCalendar();if(page==='training'){renderWorkouts();selectWorkout(selectedWorkout);renderHistory()}window.scrollTo({top:0,behavior:'smooth'})}
+$('energy').value=data.energy;$('symptom').value=data.symptom;document.querySelectorAll('[data-mood]').forEach(b=>b.classList.toggle('selected',b.dataset.mood===data.mood));document.querySelectorAll('[data-mood]').forEach(b=>b.onclick=()=>{data.mood=b.dataset.mood;document.querySelectorAll('[data-mood]').forEach(x=>x.classList.toggle('selected',x===b))});
+$('energy').onchange=e=>{data.energy=e.target.value;updateHome()};$('symptom').onchange=e=>{data.symptom=e.target.value;updateHome()};
+$('saveCheckin').onclick=()=>{data.energy=$('energy').value;data.symptom=$('symptom').value;data.checkins.push({date:iso(today),energy:data.energy,symptom:data.symptom,mood:data.mood});save();updateHome();showToast('Dagens innsjekk er lagret ✿')};
+$('startRecommended').onclick=()=>{selectedWorkout=recommendation();goPage('training');selectWorkout(selectedWorkout)};
+$('lighter').onclick=()=>{selectedWorkout='light';goPage('training');selectWorkout('light')};
+$('rest').onclick=()=>{selectedWorkout='rest';goPage('training');selectWorkout('rest')};
+$('completeWorkout').onclick=()=>{data.history.push({title:workouts[selectedWorkout].title,date:fmt(today,{day:'numeric',month:'short',year:'numeric'})});save();renderHistory();showToast('Økten er registrert — bra jobbet!')};
+$('backToToday').onclick=()=>goPage('today');
+$('prevMonth').onclick=()=>{viewMonth=new Date(viewMonth.getFullYear(),viewMonth.getMonth()-1,1);renderCalendar()};
+$('nextMonth').onclick=()=>{viewMonth=new Date(viewMonth.getFullYear(),viewMonth.getMonth()+1,1);renderCalendar()};
+$('periodStart').value=data.start;$('cycleLength').value=String(data.length);$('periodLength').value=String(data.bleed);$('saveCycle').onclick=saveCycle;
+$('exportData').onclick=()=>{const blob=new Blob([JSON.stringify(data,null,2)],{type:'application/json'});const url=URL.createObjectURL(blob);const a=document.createElement('a');a.href=url;a.download='cyclefit-data.json';a.click();URL.revokeObjectURL(url);showToast('Dataeksport startet')};
+$('resetData').onclick=()=>{if(confirm('Vil du slette alle lagrede CycleFit-data i denne nettleseren?')){localStorage.removeItem('cyclefit-data');location.reload()}};
+
+// Mindfulness breathing guide and timer
+let breathInterval=null, breathStartedAt=0, breathRunning=false;
+function breathTick(){
+ const elapsed=(Date.now()-breathStartedAt)/1000;
+ const cycle=elapsed%10;
+ const orb=$('breathOrb');
+ if(cycle<4){$('breathWord').textContent='Pust inn';$('breathCount').textContent=Math.max(1,Math.ceil(4-cycle))+' sek';orb.style.transform='scale(1.12)';orb.style.transitionDuration='4s'}
+ else{$('breathWord').textContent='Pust ut';$('breathCount').textContent=Math.max(1,Math.ceil(10-cycle))+' sek';orb.style.transform='scale(.88)';orb.style.transitionDuration='6s'}
+}
+$('breathStart').onclick=()=>{if(breathInterval)clearInterval(breathInterval);breathStartedAt=Date.now();breathRunning=true;breathTick();breathInterval=setInterval(breathTick,250);$('breathStart').textContent='Start på nytt'};
+$('breathStop').onclick=()=>{if(breathInterval)clearInterval(breathInterval);breathInterval=null;breathRunning=false;$('breathWord').textContent='Klar?';$('breathCount').textContent='Følg sirkelen';$('breathOrb').style.transform='scale(1)';$('breathOrb').style.transitionDuration='0.5s';$('breathStart').textContent='Start pusteøvelse'};
+let timerDuration=120,timerRemaining=120,timerInterval=null;
+function timerPaint(){$('timerDisplay').textContent=String(Math.floor(timerRemaining/60)).padStart(2,'0')+':'+String(timerRemaining%60).padStart(2,'0')}
+function timerStop(){if(timerInterval)clearInterval(timerInterval);timerInterval=null}
+document.querySelectorAll('.duration').forEach(b=>b.onclick=()=>{timerStop();timerDuration=Number(b.dataset.min)*60;timerRemaining=timerDuration;document.querySelectorAll('.duration').forEach(x=>x.classList.toggle('selected',x===b));$('timerStatus').textContent='Klar når du er';$('timerStart').textContent='Start';timerPaint()});
+$('timerStart').onclick=()=>{if(timerInterval){timerStop();$('timerStart').textContent='Fortsett';$('timerStatus').textContent='Pauset';return}if(timerRemaining<=0){timerRemaining=timerDuration} $('timerStatus').textContent='Ta det rolig — dette er din tid';$('timerStart').textContent='Pause';timerInterval=setInterval(()=>{timerRemaining--;timerPaint();if(timerRemaining<=0){timerStop();timerRemaining=0;timerPaint();$('timerStatus').textContent='Ferdig. Ta med deg roen videre ✨';$('timerStart').textContent='Start igjen';showToast('Meditasjonstiden er ferdig ✨')}},1000)};
+$('timerReset').onclick=()=>{timerStop();timerRemaining=timerDuration;timerPaint();$('timerStatus').textContent='Klar når du er';$('timerStart').textContent='Start'};
+
+updateHome();renderCalendar();renderWorkouts();selectWorkout(recommendation());renderHistory();
+</script>
+</body>
+</html>
